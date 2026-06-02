@@ -1,0 +1,4 @@
+venv/
+.env
+test_audio.mp3
+__pycache__/
