@@ -20,6 +20,7 @@ httpx==0.28.1
 hyperframe==6.1.0
 idna==3.17
 jiter==0.15.0
+loguru==0.7.3
 markdown-it-py==4.2.0
 mdurl==0.1.2
 mmh3==5.2.1
