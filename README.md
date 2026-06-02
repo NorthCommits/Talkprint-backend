@@ -298,7 +298,7 @@ Poll `GET /sessions/{session_id}` to check status. When `status` is `done`, fetc
 
 **Swapnil Bhattacharya**
 AI/GenAI Engineer — Multi-agent systems, RAG pipelines, LLM tooling
-[GitHub](https://github.com/yourusername) · [LinkedIn](https://linkedin.com/in/yourprofile)
+[GitHub](https://github.com/NorthCommits) · [LinkedIn](https://www.linkedin.com/in/swapnilaiengineer/)
 
 ---
 
