@@ -51,6 +51,33 @@ def forgot_password(body: dict):
         return {"message": "Password reset email sent"}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+    
+
+@router.post("/auth/refresh")
+def refresh_token(request: Request):
+    """
+    Takes refresh token from Authorization header, returns new access token
+    """
+    try:
+        auth_header = request.headers.get("Authorization", "")
+        if not auth_header.startswith("Bearer "):
+            raise HTTPException(status_code=401, detail="Invalid token format")
+        
+        refresh_token = auth_header.replace("Bearer ", "")
+        
+        # Verify refresh token with Supabase
+        user = supabase.auth.refresh_session(refresh_token).session
+        
+        logger.info(f"Token refreshed for user {user.user.id}")
+        
+        return {
+            "access_token": user.access_token,
+            "refresh_token": user.refresh_token,
+            "expires_in": 3600
+        }
+    except Exception as e:
+        logger.error(f"Token refresh failed: {str(e)}")
+        raise HTTPException(status_code=401, detail="Invalid refresh token")
 
 
 @router.post("/logout")
